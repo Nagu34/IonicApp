@@ -1,0 +1,30 @@
+<ion-grid>
+  <ion-row justify-content-center>
+
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+      <div text-center>
+        <h3>Sign in</h3>
+      </div>
+      <div>
+        <p style="color: red" *ngIf="InvalidUser">Enter valid credentials</p>
+      </div>
+      <div padding>
+        <ion-item>
+          <ion-input type="text" placeholder="Username" name="email" [(ngModel)]="user.email" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" required></ion-input>
+        </ion-item>
+      </div>
+      <div padding>
+        <ion-button  id="login" (click)="login()" expand="block" color="dark"  clear>Login</ion-button>
+      </div>
+      <div padding>
+        <ion-button  href="/register" expand="block"  color="dark" clear>Sign up</ion-button>
+      </div>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>

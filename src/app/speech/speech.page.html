@@ -1,0 +1,17 @@
+<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+<ion-content fullscreen>
+  <ion-card text-center class="container" class="card">
+    <ion-card-content text-center>
+      <ion-button  class="button2" class="font" (click)="getDetails()" >Get Position</ion-button><br>
+
+      <ion-text color="dark"  class="font" >Latitude : {{ latitude }}    </ion-text> <br>
+      <ion-text color="dark"  class="font" >Longitude : {{ longitude }}    </ion-text> <br>
+      <ion-text color="dark" class="font">Accuracy : {{accuracy}} </ion-text><br>
+      <ion-text color="dark" class="font" *ngIf="altitude">Altitude : {{ altitude }} <br> Altitude Accuracy : {{ altitudeaccuracy }}  </ion-text>
+      <ion-text color="dark" *ngIf="errors" class="font"> {{errors}} </ion-text>
+    </ion-card-content>
+  </ion-card>
+  <div padding>
+    <ion-button href="/main" expand="block" color="dark" >Back</ion-button>
+  </div>
+</ion-content>

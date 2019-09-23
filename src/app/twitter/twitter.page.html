@@ -1,0 +1,17 @@
+
+<ion-content padding class="bg">
+  <ion-item>
+    <ion-input [(ngModel)]="link" placeholder="Insert URL you wish to extract comments from here" type="text"></ion-input>
+  </ion-item>
+  <div align="center">
+    <ion-button class="button" (click)="extract()">GO</ion-button>
+
+  </div>
+  <div padding>
+    <ion-button  href="/main" expand="block"  color="dark" clear>Back</ion-button>
+  </div>
+
+  <ion-list>
+    <h2 style="width: 200%" ><div *ngFor="let comment of comments"> <b><em>Comments : {{ comment.comment }}</em></b></div></h2>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-content padding>
+  <ion-item>
+    <ion-input type="text" placeholder="Enter" name="name" [(ngModel)]="searchterm" required></ion-input>
+  </ion-item>
+  <ion-button  (click)="findEmotion()" expand="block">Check Emotion</ion-button>
+<div padding>
+    <p color="red">{{this.searchResult}}</p>
+</div>
+
+    <div padding>
+        <ion-button  href="/twitter" expand="block"  color="dark" clear>TwitterAnalysis</ion-button>
+    </div>
+    <div padding>
+        <ion-button href="/notifications" expand="block" color="dark" >Notifications</ion-button>
+    </div>
+    <div padding>
+        <ion-button href="/speech" expand="block" color="dark" >GeoLocation</ion-button>
+    </div>
+</ion-content>
