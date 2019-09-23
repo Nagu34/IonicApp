@@ -14,4 +14,8 @@
   <div padding>
     <ion-button href="/main" expand="block" color="dark" >Back</ion-button>
   </div>
+  <h2>Content from Firebase</h2>
+  <div class="col-md-3">
+    <pre *ngFor="let item of items | async">{{item.content}}</pre>
+  </div>
 </ion-content>

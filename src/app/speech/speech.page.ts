@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import {catchError} from 'rxjs/operators';
-import {error} from 'util';
+import { AngularFireDatabase} from 'angularfire2/database'
 import {HttpClient} from '@angular/common/http';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-speech',
   templateUrl: './speech.page.html',
@@ -20,11 +20,12 @@ export class SpeechPage implements OnInit {
   errors: any;
 
 
+  items: Observable<any[]>;
 
 
 
-constructor(public geolocation: Geolocation,private http: HttpClient) {
-
+constructor(public geolocation: Geolocation,public db: AngularFireDatabase) {
+  this.items = db.list('items').valueChanges();
   }
   ngOnInit() {
   }
@@ -37,7 +38,8 @@ constructor(public geolocation: Geolocation,private http: HttpClient) {
       this.accuracy = resp.coords.accuracy + ' Meters';
       this.altitudeaccuracy = resp.coords.altitudeAccuracy ;
       console.log(this.altitude, this.altitudeaccuracy);
-
+      this.db.list('items').push({ content: this.latitude + ',' + this.longitude + ',' + this.accuracy});
+      // this.itemValue = '';
 // tslint:disable-next-line:no-shadowed-variable
     }).catch((error) => {
       this.errors = 'Error getting location: ' + error;
